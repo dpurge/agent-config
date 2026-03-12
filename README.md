@@ -16,7 +16,7 @@ mkdir %USERPROFILE%\.claude
 mklink /j %USERPROFILE%\.claude\skills C:\...\claude-config\skills
 mklink /j %USERPROFILE%\.claude\agents C:\...\claude-config\agents
 mklink /j %USERPROFILE%\.claude\commands C:\...\claude-config\commands
-mklink %USERPROFILE%\.claude\CLAUDE.md C:\...\claude-config\CLAUDE.md
+mklink %USERPROFILE%\.claude\CLAUDE.md C:\...\claude-config\AGENTS.md
 ```
 
 Link files on Linux:
