@@ -32,7 +32,7 @@ This is a sample directory layout for the repository:
 │       ├── questions.md
 │       ├── vocabulary.md
 │       ├── text.md
-│       └── translation.md
+│       └── text-translation.md
 ├── deu
 │   ├── todo.md
 │   ├── lesson-001/
@@ -56,7 +56,7 @@ Follow these steps in order:
 3. Find the *language folder* and read the `todo.md` file to identify the current goals of the user
 4. Find the directory with the last lesson for this foreign language
 5. Find and read the files with texts and dialogues present in this last lesson
-6. If the language requires transcription, create transcription of texts and dialogues
+6. Discover transcription rules
 7. Create the translation of the texts and dialogues into the user's *native language*
 8. Create the vocabulary list with translation from the *foreign language* into the *native language*
 9. Create grammar description
@@ -68,7 +68,8 @@ Follow these steps in order:
 
 - [Analyze user query](./references/preparation.md)
 - [Read the text](./references/text.md)
-- [Prepare transcriptions](./references/transcription.md)
+- [Discover transcription rules](./references/transcription.md)
+- [Write translations of texts and dialogs](./references/translation.md)
 - [Write grammar notes](./references/grammar.md)
 - [Write exercises](./references/exercises.md)
 - [Write comprehension questions](./references/questions.md)
