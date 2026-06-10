@@ -1,4 +1,84 @@
-# Claude code with Ollama
+# Configuration
+
+SystemD configuration for Ollama service:
+
+```sh
+cat > /etc/systemd/system/ollama.service <<'EOF'
+[Unit]
+Description=Ollama Service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/ollama serve
+User=ollama
+Group=ollama
+Restart=always
+RestartSec=3
+Environment="PATH=/home/david/.local/bin:/home/david/bin:/usr/local/bin:/usr/bin"
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+Environment="OLLAMA_CONTEXT_LENGTH=64000"
+
+[Install]
+WantedBy=default.target
+EOF
+```
+
+Pull models:
+
+```sh
+ollama pull qwen3-coder:30b
+ollama pull qwen3.6:35b
+ollama pull translategemma:27b
+```
+
+## OpenCode
+
+Connect to Ollama:
+
+```sh
+cat > ~/.config/opencode/opencode.jsonc <<'EOF'
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "provider": {
+    "Ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "qwen3-coder:30b": {
+          "tools": true
+        },
+        "qwen3.6:35b": {
+          "tools": true
+        },
+        "translategemma:27b": {
+          "tools": true
+        }
+      }
+    }
+  },
+  
+  "permission": {
+    "edit": "ask",
+    "bash": "ask",
+    "webfetch": "allow"
+  }
+}
+EOF
+```
+
+Link directories:
+
+```sh
+ln -s $(pwd)/AGENTS.md ~/.config/opencode/AGENTS.md
+ln -s $(pwd)/agents ~/.config/opencode/agents
+ln -s $(pwd)/skills ~/.config/opencode/skills
+ln -s $(pwd)/commands ~/.config/opencode/commands
+```
+
+## ClaudeCode
 
 Set environment variables:
 
